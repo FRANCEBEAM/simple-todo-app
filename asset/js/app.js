@@ -7,11 +7,8 @@ const lists = document.querySelector('.item-list')
 form.addEventListener('submit', (e) =>{
     e.preventDefault()
 
-    let id = Math.random() * 100000;
+    const todo = new Todo(todoField.value);
 
-    const todo = new Todo(id, todoField.value);
-
-    console.log(todo)
 
     UI.displayData(todo);
 })
@@ -24,8 +21,7 @@ document.querySelector('.item-list').addEventListener('click', (e)=>{
 })
 
 class Todo{
-    constructor(id, text){
-        this.id = id
+    constructor(text){
         this.text = text
     }
 }
@@ -64,11 +60,6 @@ class UI{
             }
     }
 
-    static btnEdit(elEdit){
-        if(elEdit.classList.contains('btnEdit')){
-            console.log('Edit')
-        }
-    }
 }
 
 
